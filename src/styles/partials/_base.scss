@@ -1,0 +1,235 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  font-size: 62.5%;
+  font-family: "Roboto";
+}
+
+::-webkit-input-placeholder {
+  color: rgba($primary, 0.5);
+}
+
+::-moz-placeholder {
+  color: rgba($primary, 0.5);
+}
+
+:-ms-input-placeholder {
+  color: rgba($primary, 0.5);
+}
+
+:-moz-placeholder {
+  color: rgba($primary, 0.5);
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  background: rgba(17, 17, 19, 1);
+  background: linear-gradient(to bottom, rgba(17, 17, 19, 1) 0%, rgba(49, 62, 69, 1) 100%);
+}
+
+.App {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-image: url("../assets/images/map_dots.png");
+  background-size: auto 100%;
+  background-position: center center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.circles-layer {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.concentric-circle__container {
+  position: absolute;
+  opacity: 0;
+  transform: scale(0);
+}
+
+.concentric-circle__1 {
+  height: 200px;
+  width: 200px;
+  border: 2px solid #e5c37a;
+  border-radius: 50%;
+  position: relative;
+}
+
+.concentric-circle__2 {
+  height: 160px;
+  width: 160px;
+  top: 19px;
+  left: 19px;
+  position: absolute;
+  border: 2px solid $primary;
+  border-radius: 50%;
+}
+
+.concentric-circle__3 {
+  height: 110px;
+  width: 110px;
+  top: 24px;
+  left: 24px;
+  position: absolute;
+  border: 2px solid $primary;
+  border-radius: 50%;
+}
+
+.logo-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  color: white;
+}
+
+.logo-primary {
+  position: relative;
+}
+
+.logo-circle {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.subscribe-container {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  text-align: center;
+  transform: translateX(-50%) translateY(-50%);
+
+  .button-subscribe {
+    color: $primary;
+    background: transparent;
+    text-transform: uppercase;
+    border-color: $primary;
+    font-size: 2.5rem;
+    padding: 1.5rem 3rem;
+    cursor: pointer;
+    font-family: "Roboto";
+    font-weight: 100;
+    outline: none;
+    transition: all 0.1s linear;
+  }
+
+  .button-active {
+    background-color: rgba($primary, 0.2);
+  }
+
+  .subscribe-input {
+    position: absolute;
+    left: 50%;
+    top: 80px;
+    transform: translateX(-50%);
+    padding: 1rem;
+    background-color: $primary;
+    text-align: center;
+
+    &::before {
+      content: '';
+      width: 14px;
+      background-color: $primary;
+      height: 14px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: rotate(45deg) translateX(-50%);
+    }
+
+    input {
+      font-size: 1.8rem;
+      display: inline-block;
+      float: left;
+      padding: 1rem 2rem;
+      text-align: center;
+      outline: none;
+      background-color: lighten($secondary, 10%);
+      color: $primary;
+      border: none;
+      font-family: "Roboto";
+      font-weight: 100;
+      box-shadow: inset 0px 0px 20px 0px rgba(darken($secondary, 40%), 0);
+      transition: all 0.2s linear;
+
+      &:focus {
+        box-shadow: inset 0px 0px 20px 0px rgba(darken($secondary, 40%), 0.3);
+      }
+    }
+
+    button {
+      display: inline-block;
+      width: 100%;
+      font-family: "Roboto";
+      font-weight: 100;
+      background-color: desaturate(darken($primary, 15%), 20%);
+      border-color: rgba(desaturate(darken($primary, 55%), 20%), 0.5);
+      font-size: 1.8rem;
+      padding: 1rem;
+      width: 100%;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .subscribe-container {
+    bottom: 35%;
+
+    .button-subscribe {
+      font-size: 1.5rem;
+    }
+  }
+
+  .logo-primary {
+    width: 90vw;
+  }
+
+  .logo-circle {
+    width: 90vw;
+  }
+}
